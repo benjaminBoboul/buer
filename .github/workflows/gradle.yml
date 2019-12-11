@@ -21,4 +21,7 @@ jobs:
         run: gradle build
 
       - name: publish on github package registry
+        env:
+          USERNAME: ${{ secrets.gpr_user }}
+          PASSWORD: ${{ secrets.gpr_key }}
         run: gradle publish
