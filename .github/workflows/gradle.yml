@@ -13,7 +13,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+
+      - name: Test with Gradle
+        run: gradle test
+
       - name: Build with Gradle
-        run: ./gradlew build
-      - name: publish package
-        run: ./gradlew publish
+        run: gradle build
+
+      - name: publish on github package registry
+        run: gradle publish
